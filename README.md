@@ -1,6 +1,3 @@
-Claro, aqui está o conteúdo formatado para um arquivo `.md`:
-
-```markdown
 # Sistema Web Gerenciador de Tarefas
 
 O Sistema Web Gerenciador de Tarefas é uma aplicação construída em Java usando o framework Spring Boot para fornecer APIs RESTful para gerenciamento de tarefas. Ele permite que usuários realizem operações como criar, visualizar, atualizar e excluir tarefas, além de outras funcionalidades essenciais em um sistema de gerenciamento de tarefas.
