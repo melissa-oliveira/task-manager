@@ -5,33 +5,33 @@
             (click)="activeModal.dismiss()"></button>
     </div>
     <div class="modal-body">
-        <form>
+        <form #taskForm="ngForm">
             <div class="mb-3">
                 <label for="titulo" class="form-label">Título</label>
-                <input type="text" class="form-control" id="titulo">
+                <input type="text" class="form-control" name="titulo" id="titulo" [(ngModel)]="task.title"
+                    #title="ngModel">
             </div>
             <div class="mb-3">
                 <label for="descricao" class="form-label">Descrição</label>
-                <textarea class="form-control" id="descricao" rows="3"></textarea>
+                <textarea class="form-control" name="descricao" id="descricao" rows="3" [(ngModel)]="task.description"
+                    #description="ngModel"></textarea>
             </div>
             <div class="mb-3">
                 <label for="estado" class="form-label">Estado</label>
-                <select class="form-select" id="estado">
+                <select class="form-select" name="estado" id="estado" [(ngModel)]="task.state" name="estado">
                     <option selected disabled hidden>Selecione...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option *ngFor="let state of states" [value]="state.id">{{ state.name }}</option>
                 </select>
             </div>
             <div class="mb-3">
                 <label for="categoria" class="form-label">Categoria</label>
-                <select class="form-select" id="categoria">
+                <select class="form-select" name="categoria" id="categoria" [(ngModel)]="task.category"
+                    name="categoria">
                     <option selected disabled hidden>Selecione...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
                 </select>
             </div>
+            <button class="btn btn-primary" type="submit" (click)="insert()">Cadastrar</button>
         </form>
     </div>
 </div>

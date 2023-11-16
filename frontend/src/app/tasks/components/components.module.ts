@@ -5,11 +5,10 @@ import { TaskFormComponent } from './task-form/task-form.component';
 
 @NgModule({
   declarations: [
-
     TaskFormComponent
   ],
   imports: [
-    CommonModule,
+    CommonModule
   ]
 })
 export class ComponentsModule { }

@@ -14,6 +14,8 @@ import { TaskListComponent } from './tasks/components/task-list/task-list.compon
 import { TaskFormComponent } from './tasks/components/task-form/task-form.component';
 import { CategoryFormComponent } from './categories/components/category-form/category-form.component';
 import { CategoryListComponent } from './categories/components/category-list/category-list.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { CategoryListComponent } from './categories/components/category-list/cat
     AuthModule,
     LayoutModule,
     SharedModule,
-    TasksModule
+    TasksModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,6 +6,6 @@ export class User {
         public name: string,
         public email: string,
         public password: string,
-        public taskList: Task[]
+        public taskList?: Task[]
     ) { }
 }
