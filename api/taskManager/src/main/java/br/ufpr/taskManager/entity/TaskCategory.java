@@ -6,13 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 @Table (name="tb_task_category")
 public class TaskCategory implements Serializable {
 	@Id   
-	@GeneratedValue   
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	@Column(name="id")
     private int id;
 	@Column(name="name")

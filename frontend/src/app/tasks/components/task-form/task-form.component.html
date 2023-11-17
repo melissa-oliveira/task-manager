@@ -9,29 +9,34 @@
             <div class="mb-3">
                 <label for="titulo" class="form-label">Título</label>
                 <input type="text" class="form-control" name="titulo" id="titulo" [(ngModel)]="task.title"
-                    #title="ngModel">
+                    #title="ngModel" value="task.title">
             </div>
             <div class="mb-3">
                 <label for="descricao" class="form-label">Descrição</label>
                 <textarea class="form-control" name="descricao" id="descricao" rows="3" [(ngModel)]="task.description"
-                    #description="ngModel"></textarea>
+                    #description="ngModel" value="task.description"></textarea>
             </div>
             <div class="mb-3">
                 <label for="estado" class="form-label">Estado</label>
-                <select class="form-select" name="estado" id="estado" [(ngModel)]="task.state" name="estado">
+                <select class="form-select" name="estado" id="estado" [(ngModel)]="task.state.id" name="estado">
                     <option selected disabled hidden>Selecione...</option>
-                    <option *ngFor="let state of states" [value]="state.id">{{ state.name }}</option>
+                    <option *ngFor="let state of states" [value]="state.id" [selected]="state.id === task.state.id">
+                        {{ state.name }}
+                    </option>
                 </select>
             </div>
             <div class="mb-3">
                 <label for="categoria" class="form-label">Categoria</label>
-                <select class="form-select" name="categoria" id="categoria" [(ngModel)]="task.category"
+                <select class="form-select" name="categoria" id="categoria" [(ngModel)]="task.category.id"
                     name="categoria">
                     <option selected disabled hidden>Selecione...</option>
-                    <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+                    <option *ngFor="let category of categories" [value]="category.id"
+                        [selected]="category.id === task.category.id">
+                        {{ category.name }}
+                    </option>
                 </select>
             </div>
-            <button class="btn btn-primary" type="submit" (click)="insert()">Cadastrar</button>
+            <button class="btn btn-primary" type="submit" (click)="submit()">Cadastrar</button>
         </form>
     </div>
 </div>

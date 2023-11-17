@@ -3,7 +3,5 @@
     <button class="btn btn-primary" (click)="openFormNewTask()">Nova +</button>
 </div>
 <div class="row">
-    <app-state-column class="col-4"></app-state-column>
-    <app-state-column class="col-4"></app-state-column>
-    <app-state-column class="col-4"></app-state-column>
+    <app-state-column class="col-4" *ngFor="let state of states" [state]="state"></app-state-column>
 </div>
