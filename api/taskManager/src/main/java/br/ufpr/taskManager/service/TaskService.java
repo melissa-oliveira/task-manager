@@ -7,10 +7,9 @@ import org.springframework.stereotype.Service;
 
 import br.ufpr.taskManager.entity.Task;
 import br.ufpr.taskManager.repository.TaskRepository;
-import br.ufpr.taskManager.service.interfaces.ITaskService;
 
 @Service
-public class TaskService implements ITaskService {
+public class TaskService {
 
     @Autowired
     private TaskRepository taskRepository;

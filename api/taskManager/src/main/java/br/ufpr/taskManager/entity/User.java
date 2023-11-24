@@ -37,18 +37,6 @@ public class User implements Serializable {
 		this.password = password;
 		this.taskList = taskList;
 	}
-	
-    public void addTask(Task tarefa) {
-        taskList.add(tarefa);
-    }
-
-    public void removeTask(Task tarefa) {
-        taskList.remove(tarefa);
-    }
-
-    public List<Task> listarTarefas() {
-        return taskList;
-    }
 
 	public int getId() {
 		return id;

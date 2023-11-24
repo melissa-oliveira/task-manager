@@ -10,11 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.ufpr.taskManager.entity.User;
 import br.ufpr.taskManager.repository.UserRepository;
-import br.ufpr.taskManager.service.interfaces.IUserService;
 
 @Service
 @Transactional
-public class UserService implements IUserService {
+public class UserService  {
 
 	@Autowired
 	private UserRepository userRepository;

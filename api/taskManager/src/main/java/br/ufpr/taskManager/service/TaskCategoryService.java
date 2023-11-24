@@ -7,10 +7,9 @@ import org.springframework.stereotype.Service;
 
 import br.ufpr.taskManager.entity.TaskCategory;
 import br.ufpr.taskManager.repository.TaskCategoryRepository;
-import br.ufpr.taskManager.service.interfaces.ITaskCategoryService;
 
 @Service
-public class TaskCategoryService implements ITaskCategoryService {
+public class TaskCategoryService {
 
     @Autowired
     private TaskCategoryRepository taskCategoryRepository;
