@@ -1,0 +1,14 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmação de Exclusão</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"
+            (click)="activeModal.dismiss()"></button>
+    </div>
+    <div class="modal-body">
+        Você realmente deseja excluir a tarefa: <strong>{{ task.title }}</strong>?
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss()">Cancelar</button>
+        <button type="button" class="btn btn-danger" (click)="deleteTask()">Excluir</button>
+    </div>
+</div>

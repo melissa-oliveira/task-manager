@@ -1,19 +1,33 @@
-<nav class="navbar bg-white p-3">
+<!-- <nav class="navbar bg-white p-3">
     <div class="container-fluid">
-        <a class="navbar-brand">Taks Manager</a>
-        <div class="dropdown">
-            <a class="d-block link-body-emphasis text-decoration-none dropdown-toggle" href="#" role="button"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end text-small shadow">
-                <!-- <li><a class="dropdown-item" [routerLink]="['/state-list']">Estados</a></li>
-                <li><a class="dropdown-item" [routerLink]="['/category-list']">Categorias</a></li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li> -->
-                <li><a class="dropdown-item text-danger" href="#">Sair</a></li>
-            </ul>
-        </div>
+        <a class="navbar-brand">Task Manager</a>
+        <a class="text-decoration-none text-danger" href="#">Sair</a>
+    </div>
+</nav> -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
+    <a class="navbar-brand" href="#">Task Manager</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" href="#" [routerLink]="'/task-list'">Tarefas</a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Configurações
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#" [routerLink]="'/category-list'">Categorias</a></li>
+                </ul>
+            </li>
+        </ul>
+        <a class="text-decoration-none text-danger" href="#">Sair</a>
     </div>
 </nav>

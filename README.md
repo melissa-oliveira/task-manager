@@ -1,54 +1,94 @@
-# Sistema Web Gerenciador de Tarefas
+# Gerenciador de Tarefas - Trabalho Final de LPOO2
 
-O Sistema Web Gerenciador de Tarefas é uma aplicação construída em Java usando o framework Spring Boot para fornecer APIs RESTful para gerenciamento de tarefas. Ele permite que usuários realizem operações como criar, visualizar, atualizar e excluir tarefas, além de outras funcionalidades essenciais em um sistema de gerenciamento de tarefas.
+Este é o repositório do trabalho final da disciplina de Linguagem de Programação Orientada a Objetos 2 (LPOO2). O objetivo deste projeto é criar um robusto Gerenciador de Tarefas que utiliza as tecnologias AngularJS, Spring Tools, APIs RESTful e PostgreSQL para fornecer uma solução eficiente que implementa de forma eficiênte o paradigma de orientação á objetos.
 
 ## Tecnologias Utilizadas
+- **AngularJS:** Utilizado para construir a interface do usuário dinâmica e interativa.
+- **Spring Tools:** Utilizado para desenvolver a camada de backend da aplicação, proporcionando um ambiente eficaz para a criação de APIs RESTful.
+- **APIs RESTful:** Implementadas para comunicação entre o frontend e o backend, garantindo uma arquitetura flexível e desacoplada.
+- **PostgreSQL:** Banco de dados relacional utilizado para armazenar e gerenciar os dados da aplicação de forma persistente.
 
-- Java
-- Spring Boot
-- Spring Data JPA
-- Spring MVC
-- Banco de Dados PostregreSQL
-- Maven
+## Estrutura do Projeto
+O projeto é composto por classes e entidades principais que desempenham papéis cruciais no gerenciamento de tarefas. As classes/entidades principais são:
 
-## Configuração do Ambiente
+### 1. TaskCategory
+```typescript
+export class TaskCategory {
+    constructor(
+        public id: number,
+        public name: string,
+        public description: string,
+        public color?: string
+    ) { }
+}
+```
 
-1. **Java:** Certifique-se de ter o Java instalado na sua máquina. Você pode baixar a versão mais recente [aqui](https://www.oracle.com/java/technologies/javase-downloads.html).
+### 2. TaskState
+```typescript
+export class TaskState {
+    constructor(
+        public id: number,
+        public name: string,
+        public description: string
+    ) { }
+}
+```
 
-2. **Maven:** Instale o Maven para gerenciar as dependências do projeto. Baixe o Maven [aqui](https://maven.apache.org/download.cgi).
+### 3. User
+```typescript
+import { Task } from "./task.model";
 
-3. **Banco de Dados:** Escolha e configure o banco de dados de sua preferência no arquivo `application.properties` no diretório `src/main/resources`.
+export class User {
+    constructor(
+        public id: number,
+        public name: string,
+        public email: string,
+        public password: string,
+        public taskList?: Task[]
+    ) { }
+}
+```
+
+### 4. Task
+```typescript
+import { TaskCategory } from "./task-category.model";
+import { TaskState } from "./task-state.model";
+import { User } from "./user.model";
+
+export class Task {
+    constructor(
+        public id: number,
+        public title: string,
+        public description: string,
+        public dueDate: Date,
+        public completed: boolean,
+        public responsible: User,
+        public priority: number,
+        public state: TaskState,
+        public category: TaskCategory
+    ) { }
+}
+```
 
 ## Execução do Projeto
+Para executar o projeto, siga os passos abaixo:
 
-1. Clone o repositório:
+1. **Frontend (AngularJS):**
+   - Navegue até o diretório do frontend.
+   - Execute o comando para instalar as dependências: `npm install`.
+   - Inicie a aplicação: `ng serve`.
 
-   ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
-   ```
+2. **Backend (Spring Tools):**
+   - Importe o projeto no Spring Tools.
+   - Configure o banco de dados PostgreSQL.
+   - Execute a aplicação.
 
-2. Navegue até o diretório do projeto:
+--- 
 
-   ```bash
-   cd seu-repositorio
-   ```
+**Equipe: Melissa Silva de Oliveira**
 
-3. Execute a aplicação usando Maven:
+**Instituição de Ensino: UFPR - Univerdade Federal do Paraná**
 
-   ```bash
-   mvn spring-boot:run
-   ```
+**Curso: TADS - Tecnologia em Análise e Desenvolvimento de Sistemas**
 
-A aplicação estará acessível em [http://localhost:8080](http://localhost:8080).
-
-## Endpoints da API
-
-A API oferece os seguintes endpoints:
-
-- `GET /tarefa`: Retorna a lista de todas as tarefas.
-- `GET /tarefa/{id}`: Retorna detalhes de uma tarefa específica.
-- `POST /tarefa`: Cria uma nova tarefa.
-- `PUT /tarefa`: Atualiza os detalhes de uma tarefa existente.
-- `DELETE /tarefa/{id}`: Exclui uma tarefa.
-
-Consulte a documentação da API para obter mais detalhes sobre os endpoints e parâmetros.
+**Ano/Semestre: 2023/2° Semestre**

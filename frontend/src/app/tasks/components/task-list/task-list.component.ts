@@ -34,7 +34,6 @@ export class TaskListComponent implements OnInit {
     }); return this.states;
   }
 
-
   openFormNewTask() {
     this.modalService.open(TaskFormComponent);
   }

@@ -15,21 +15,27 @@ public class TaskCategory implements Serializable {
 	@Id   
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	@Column(name="id")
+	
     private int id;
 	@Column(name="name")
+	
     private String name;
 	@Column(name="description")
     private String description;
+	
+	@Column(name="color")
+    private String color;
 	
 	public TaskCategory() {
 
 	}
     
-	public TaskCategory(int id, String name, String description) {
+	public TaskCategory(int id, String name, String description, String color) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
+		this.color = color;
 	}
 
 	public int getId() {
@@ -54,5 +60,13 @@ public class TaskCategory implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
 	}
 }

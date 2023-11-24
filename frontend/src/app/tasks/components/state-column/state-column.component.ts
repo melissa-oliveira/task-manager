@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CategoryService } from 'src/app/categories/service/category-service.service';
 import { Task, TaskState } from 'src/app/shared';
-import { StateService } from 'src/app/states/service/state-service.service';
 import { TaskService } from '../../services/task-service.service';
 
 @Component({
