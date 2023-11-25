@@ -23,7 +23,7 @@ export class CategoryFormComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.category == null) {
-      this.category = new TaskCategory(0, '', '');
+      this.category = new TaskCategory(0, '', '', '');
       this.newCategory = true;
     }
     this.findAllCategories();

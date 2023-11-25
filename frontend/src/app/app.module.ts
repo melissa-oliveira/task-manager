@@ -8,8 +8,6 @@ import { TasksModule } from './tasks/tasks.module';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './layout/components/navbar/navbar.component';
-import { StateColumnComponent } from './tasks/components/state-column/state-column.component';
-import { TaskCardComponent } from './tasks/components/task-card/task-card.component';
 import { TaskListComponent } from './tasks/components/task-list/task-list.component';
 import { TaskFormComponent } from './tasks/components/task-form/task-form.component';
 import { CategoryFormComponent } from './categories/components/category-form/category-form.component';
@@ -21,8 +19,6 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     NavbarComponent,
-    TaskCardComponent,
-    StateColumnComponent,
     TaskFormComponent,
     TaskListComponent,
     CategoryFormComponent,

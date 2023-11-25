@@ -7,21 +7,19 @@
     <div class="modal-body">
         <form #categoryForm="ngForm">
             <div class="mb-3">
-                <label for="titulo" class="form-label">Nome</label>
+                <label for="name" class="form-label">Nome</label>
                 <input type="text" class="form-control" name="name" id="name" [(ngModel)]="category.name"
-                    #title="ngModel" value="category.name">
+                    #name="ngModel" value="category.name">
             </div>
             <div class="mb-3">
-                <label for="cor" class="form-label">Cor</label>
-                <select class="form-control" name="cor" id="cor" [(ngModel)]="category.color" #color="ngModel"
-                    value="category.color">
-                    <option value="" selected disabled>Selecione...</option>
-                    <option value="primary">Azul</option>
-                    <option value="warning">Amarelo</option>
-                    <option value="danger">Vermelho</option>
-                    <option value="secondary">Cinza</option>
-                    <option value="dark">Gráfite</option>
-                    <option value="light">Cinza Claro</option>
+                <label for="color" class="form-label">Cor</label>
+                <select class="form-control" name="color" id="color" [(ngModel)]="category.color" #color="ngModel">
+                    <option [ngValue]="'primary'">Azul</option>
+                    <option [ngValue]="'warning'">Amarelo</option>
+                    <option [ngValue]="'danger'">Vermelho</option>
+                    <option [ngValue]="'secondary'">Cinza</option>
+                    <option [ngValue]="'dark'">Gráfite</option>
+                    <option [ngValue]="'light'">Cinza Claro</option>
                 </select>
             </div>
             <div class="mb-3">

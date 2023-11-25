@@ -35,16 +35,34 @@ export class CategoryListComponent {
   }
 
   openFormCategory() {
-    this.modalService.open(CategoryFormComponent);
+    const modalRef = this.modalService.open(CategoryFormComponent);
+
+    modalRef.result.then(() => {
+      this.findAllCategories();
+    }).catch(() => {
+      this.findAllCategories();
+    });
   }
 
-  openFormTask(category: TaskCategory) {
+  openFormCategoryToEdit(category: TaskCategory) {
     const modalRef = this.modalService.open(CategoryFormComponent);
     modalRef.componentInstance.category = category;
+
+    modalRef.result.then(() => {
+      this.findAllCategories();
+    }).catch(() => {
+      this.findAllCategories();
+    });
   }
 
   openConfirmDeletionCategory(category: TaskCategory) {
     const modalRef = this.modalService.open(ModalConfirmDeleteComponent);
     modalRef.componentInstance.category = category;
+
+    modalRef.result.then(() => {
+      this.findAllCategories();
+    }).catch(() => {
+      this.findAllCategories();
+    });
   }
 }

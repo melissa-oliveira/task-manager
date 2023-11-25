@@ -36,7 +36,7 @@ export class TaskFormComponent implements OnInit {
     });
 
     if (this.task == null) {
-      this.task = new Task(0, '', '', new Date(), false, this.user, 0, new TaskState(0, "", ""), new TaskCategory(0, "", ""));
+      this.task = new Task(0, '', '', new Date(), false, this.user, 0, new TaskState(0, "", ""), new TaskCategory(0, "", "", ""));
       this.newTask = true;
     }
     this.findAllCategories();

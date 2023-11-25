@@ -32,6 +32,7 @@ public class TaskCategoryService {
         if (existingCategory != null) {
             existingCategory.setName(entity.getName());
             existingCategory.setDescription(entity.getDescription());
+            existingCategory.setColor(entity.getColor());
 
             TaskCategory updatedCategory = taskCategoryRepository.save(existingCategory);
             return updatedCategory;
