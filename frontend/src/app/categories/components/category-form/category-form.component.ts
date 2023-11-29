@@ -1,8 +1,9 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgForm } from '@angular/forms';
-import { TaskCategory } from 'src/app/shared';
+import { TaskCategory, User } from 'src/app/shared';
 import { CategoryService } from 'src/app/categories/service/category-service.service';
+import { AuthService } from 'src/app/auth/services/auth-service.service';
 
 @Component({
   selector: 'app-category-form',
@@ -15,22 +16,25 @@ export class CategoryFormComponent implements OnInit {
 
   categories!: TaskCategory[];
   newCategory: boolean = false;
+  user!: User;
 
   constructor(
     public activeModal: NgbActiveModal,
     private categoryService: CategoryService,
+    private authService: AuthService,
   ) { }
 
   ngOnInit(): void {
+    this.user = this.authService.getCurrentlyUser();
     if (this.category == null) {
-      this.category = new TaskCategory(0, '', '', '');
+      this.category = new TaskCategory(0, '', '', '', this.user);
       this.newCategory = true;
     }
     this.findAllCategories();
   }
 
   private findAllCategories(): void {
-    this.categoryService.findAll().subscribe({
+    this.categoryService.findByUser(this.authService.getCurrentlyUser()).subscribe({
       next: (data: TaskCategory[]) => {
         if (data == null) {
           this.categories = [];

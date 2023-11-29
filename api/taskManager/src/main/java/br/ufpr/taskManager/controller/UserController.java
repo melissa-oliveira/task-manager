@@ -42,9 +42,15 @@ public class UserController {
     public User findByEmail(@PathVariable("email") String email) {
         return userService.findByEmail(email);
     }
+    
+    @GetMapping("/user/login/{email}/{password}")
+    public User login(@PathVariable("email") String email, @PathVariable("password") String password) {
+        return userService.login(email, password);
+    }
 
     @PutMapping("/user")
     public User update(@RequestBody User user) {
+    	user.setPassword(userService.hashSHA256(user.getPassword()));
         return userService.update(user);
     }
 

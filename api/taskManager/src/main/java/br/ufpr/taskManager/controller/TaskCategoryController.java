@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.ufpr.taskManager.entity.TaskCategory;
+import br.ufpr.taskManager.entity.User;
 import br.ufpr.taskManager.service.TaskCategoryService;
 
 @CrossOrigin
@@ -30,6 +31,11 @@ public class TaskCategoryController {
     @GetMapping("/taskCategory")
     public List<TaskCategory> findAll() {
         return taskCategoryService.findAll();
+    }
+    
+    @PostMapping("/taskCategory/user")
+    public List<TaskCategory> findByUser(@RequestBody User user) {
+        return taskCategoryService.findByUser(user);
     }
 
     @GetMapping("/taskCategory/{id}")

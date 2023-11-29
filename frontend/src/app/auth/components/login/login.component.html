@@ -1,1 +1,17 @@
-<p>login works!</p>
+<div class=" d-flex justify-content-center align-items-center pt-5 mt-5">
+    <form #loginForm="ngForm" class="card border-0 p-5 w-50 mt-5">
+        <h1 class="w-100 text-center">Task Manager</h1>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="user.email" #email="ngModel"
+                value="user.email">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Senha</label>
+            <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password" #password="ngModel"
+                value="user.password">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="submitLogin()">Login</button>
+        <a [routerLink]="'/registration'" class="link link-primary w-100 text-center mt-2">Criar Conta</a>
+    </form>
+</div>

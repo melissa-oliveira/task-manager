@@ -22,20 +22,16 @@ public class User implements Serializable {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "responsible", cascade = CascadeType.ALL)
-    private List<Task> taskList;
-
     public User() {
       
     }
     
-	public User(int id, String name, String email, String password, List<Task> taskList) {
+	public User(int id, String name, String email, String password) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.password = password;
-		this.taskList = taskList;
 	}
 
 	public int getId() {
@@ -68,14 +64,6 @@ public class User implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public List<Task> getTaskList() {
-		return taskList;
-	}
-
-	public void setTaskList(List<Task> taskList) {
-		this.taskList = taskList;
 	}
 
 }

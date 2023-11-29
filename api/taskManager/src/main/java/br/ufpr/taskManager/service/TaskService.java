@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.ufpr.taskManager.entity.Task;
+import br.ufpr.taskManager.entity.User;
 import br.ufpr.taskManager.repository.TaskRepository;
 
 @Service
@@ -16,6 +17,10 @@ public class TaskService {
 
     public List<Task> findAll() {
         return taskRepository.findAll();
+    }
+    
+    public List<Task> findByUser(User user) {
+        return taskRepository.findByResponsible(user);
     }
 
     public Task findById(Integer id) {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, } from 'rxjs';
-import { Task } from 'src/app/shared';
+import { Task, User } from 'src/app/shared';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +25,10 @@ export class TaskService {
 
   findById(id: number): Observable<Task> {
     return this.httpClient.get<Task>(this.BASE_URL + id, this.httpOptions);
+  }
+
+  findByUser(user: User): Observable<Task[]> {
+    return this.httpClient.post<Task[]>(this.BASE_URL + 'user', JSON.stringify(user), this.httpOptions);
   }
 
   insert(task: Task): Observable<Task> {

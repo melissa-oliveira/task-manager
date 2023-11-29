@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.ufpr.taskManager.entity.Task;
+import br.ufpr.taskManager.entity.User;
 import br.ufpr.taskManager.service.TaskService;
 
 @CrossOrigin
@@ -30,6 +31,11 @@ public class TaskController {
     @GetMapping("/task")
     public List<Task> findAll() {
         return taskService.findAll();
+    }
+
+    @PostMapping("/task/user")
+    public List<Task> findByUser(@RequestBody User user) {
+        return taskService.findByUser(user);
     }
 
     @GetMapping("/task/{id}")

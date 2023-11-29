@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TaskFormComponent } from '../task-form/task-form.component';
-import { Task, TaskState } from 'src/app/shared';
+import { Task, TaskState, User } from 'src/app/shared';
 import { StateService } from 'src/app/states/service/state-service.service';
 import { TaskService } from '../../services/task-service.service';
 import { ModalConfirmDeleteComponent } from '../modal-confirm-delete/modal-confirm-delete.component';
+import { AuthService } from 'src/app/auth/services/auth-service.service';
 
 @Component({
   selector: 'app-task-list',
@@ -15,6 +16,7 @@ export class TaskListComponent implements OnInit {
 
   states!: TaskState[];
   tasks!: Task[];
+  user!: User;
 
   stateAndTasks: {
     state: string,
@@ -24,11 +26,13 @@ export class TaskListComponent implements OnInit {
   constructor(
     private modalService: NgbModal,
     private stateService: StateService,
+    private authService: AuthService,
     private taskService: TaskService
   ) { }
 
   ngOnInit(): void {
     this.findAllStates();
+    this.user = this.authService.getCurrentlyUser();
   }
 
   private findAllStates(): TaskState[] {
@@ -46,7 +50,7 @@ export class TaskListComponent implements OnInit {
   }
 
   private findAllTasks(): Task[] {
-    this.taskService.findAll().subscribe({
+    this.taskService.findByUser(this.user).subscribe({
       next: (data: Task[]) => {
         if (data == null) {
           this.tasks = [];

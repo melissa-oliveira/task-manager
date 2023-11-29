@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { TaskCategory } from 'src/app/shared';
+import { TaskCategory, User } from 'src/app/shared';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,10 @@ export class CategoryService {
 
   findAll(): Observable<TaskCategory[]> {
     return this.httpClient.get<TaskCategory[]>(this.BASE_URL, this.httpOptions);
+  }
+
+  findByUser(user: User): Observable<TaskCategory[]> {
+    return this.httpClient.post<TaskCategory[]>(this.BASE_URL + "user", JSON.stringify(user), this.httpOptions);
   }
 
   findById(id: number): Observable<TaskCategory> {

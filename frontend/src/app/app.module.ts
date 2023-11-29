@@ -14,6 +14,8 @@ import { CategoryFormComponent } from './categories/components/category-form/cat
 import { CategoryListComponent } from './categories/components/category-list/category-list.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './auth/components/login/login.component';
+import { RegistrationComponent } from './auth/components/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
     TaskFormComponent,
     TaskListComponent,
     CategoryFormComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

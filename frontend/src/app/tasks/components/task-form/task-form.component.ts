@@ -31,12 +31,10 @@ export class TaskFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.authService.findById(1).subscribe(user => {
-      this.user = user;
-    });
+    this.user = this.authService.getCurrentlyUser();
 
     if (this.task == null) {
-      this.task = new Task(0, '', '', new Date(), false, this.user, 0, new TaskState(0, "", ""), new TaskCategory(0, "", "", ""));
+      this.task = new Task(0, '', '', new Date(), false, this.user, 0, new TaskState(0, "", ""), new TaskCategory(0, "", "", "", this.user));
       this.newTask = true;
     }
     this.findAllCategories();
@@ -56,7 +54,7 @@ export class TaskFormComponent implements OnInit {
   }
 
   private findAllCategories(): TaskCategory[] {
-    this.categoryService.findAll().subscribe({
+    this.categoryService.findByUser(this.authService.getCurrentlyUser()).subscribe({
       next: (data: TaskCategory[]) => {
         if (data == null) {
           this.categories = [];
@@ -69,6 +67,7 @@ export class TaskFormComponent implements OnInit {
 
   private processTask(): void {
     if (this.taskForm.form.valid) {
+
       this.stateService.findById(this.task.state.id).subscribe(state => {
         this.task.state = state;
 

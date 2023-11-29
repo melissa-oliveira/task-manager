@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.ufpr.taskManager.entity.TaskCategory;
+import br.ufpr.taskManager.entity.User;
 import br.ufpr.taskManager.repository.TaskCategoryRepository;
 
 @Service
@@ -18,6 +19,10 @@ public class TaskCategoryService {
         return taskCategoryRepository.findAll();
     }
 
+    public List<TaskCategory> findByUser(User user) {
+        return taskCategoryRepository.findByResponsible(user);
+    }
+    
     public TaskCategory findById(Integer id) {
         return taskCategoryRepository.findById(id).orElse(null);
     }
@@ -33,6 +38,7 @@ public class TaskCategoryService {
             existingCategory.setName(entity.getName());
             existingCategory.setDescription(entity.getDescription());
             existingCategory.setColor(entity.getColor());
+            existingCategory.setResponsible(entity.getResponsible());
 
             TaskCategory updatedCategory = taskCategoryRepository.save(existingCategory);
             return updatedCategory;

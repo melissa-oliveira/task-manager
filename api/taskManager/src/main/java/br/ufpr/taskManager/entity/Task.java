@@ -46,7 +46,7 @@ public class Task implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "category_id")
-    private TaskCategory category;
+    private TaskCategory category;	
     
     public Task() {
     	

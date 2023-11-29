@@ -8,6 +8,8 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Table (name="tb_task_category")
@@ -26,16 +28,22 @@ public class TaskCategory implements Serializable {
 	@Column(name="color")
     private String color;
 	
+    @ManyToOne
+    @JoinColumn(name = "responsible_id")
+    private User responsible;
+
+	
 	public TaskCategory() {
 
 	}
     
-	public TaskCategory(int id, String name, String description, String color) {
+	public TaskCategory(int id, String name, String description, String color, User responsible) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.color = color;
+		this.responsible = responsible;
 	}
 
 	public int getId() {
@@ -68,5 +76,13 @@ public class TaskCategory implements Serializable {
 
 	public void setColor(String color) {
 		this.color = color;
+	}
+
+	public User getResponsible() {
+		return responsible;
+	}
+
+	public void setResponsible(User responsible) {
+		this.responsible = responsible;
 	}
 }
