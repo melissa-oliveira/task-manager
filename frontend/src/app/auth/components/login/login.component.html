@@ -8,8 +8,8 @@
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Senha</label>
-            <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password" #password="ngModel"
-                value="user.password">
+            <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password"
+                #password="ngModel" value="user.password">
         </div>
         <button type="submit" class="btn btn-primary" (click)="submitLogin()">Login</button>
         <a [routerLink]="'/registration'" class="link link-primary w-100 text-center mt-2">Criar Conta</a>
