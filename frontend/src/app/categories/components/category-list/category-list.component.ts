@@ -5,6 +5,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CategoryFormComponent } from '../category-form/category-form.component';
 import { ModalConfirmDeleteComponent } from '../modal-confirm-delete/modal-confirm-delete.component';
 import { AuthService } from 'src/app/auth/services/auth-service.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-category-list',

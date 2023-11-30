@@ -71,28 +71,6 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
 }
 ```
 
-## Funções Lambda e Streams
-
-As funções lambda e streams são recursos poderosos introduzidos no Java 8. As funções lambda permitem expressar instâncias de interfaces funcionais de forma concisa. Streams proporcionam uma maneira de processar sequências de elementos de forma declarativa.
-
-Exemplo de uma função lambda:
-```java
-List<Task> highPriorityTasks = tasks.stream()
-    .filter(task -> task.getPriority() > 5)
-    .collect(Collectors.toList());
-```
-
-Exemplo de uso de streams:
-```java
-int sumOfPriorities = tasks.stream()
-    .mapToInt(Task::getPriority)
-    .sum();
-```
-
-## Processamento Paralelo no Banco de Dados
-
-O Spring gerencia o controle transacional por meio de proxies. Quando um método anotado com `@Transactional` é chamado, o Spring inicia uma transação, e ao sair do método, a transação é commitada. Se ocorrer uma exceção, a transação é revertida.
-
 ## Estrutura das Classes em Angular
 
 ### 1. TaskCategory
@@ -102,7 +80,8 @@ export class TaskCategory {
         public id: number,
         public name: string,
         public description: string,
-        public color?: string
+        public color: string,
+        public responsible: User,
     ) { }
 }
 ```
@@ -127,8 +106,7 @@ export class User {
         public id: number,
         public name: string,
         public email: string,
-        public password: string,
-        public taskList?: Task[]
+        public password: string
     ) { }
 }
 ```

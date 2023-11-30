@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, } from 'rxjs';
+import { Observable, map, } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { TaskCategory, User } from 'src/app/shared';
 
@@ -24,7 +24,10 @@ export class CategoryService {
   }
 
   findByUser(user: User): Observable<TaskCategory[]> {
-    return this.httpClient.post<TaskCategory[]>(this.BASE_URL + "user", JSON.stringify(user), this.httpOptions);
+    return this.httpClient.post<TaskCategory[]>(this.BASE_URL + "user", JSON.stringify(user), this.httpOptions)
+      .pipe(
+        map(categories => categories.sort((a, b) => a.name.localeCompare(b.name)))
+      );
   }
 
   findById(id: number): Observable<TaskCategory> {
