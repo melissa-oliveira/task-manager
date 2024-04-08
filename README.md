@@ -1,6 +1,6 @@
 # Gerenciador de Tarefas - Trabalho Final de LPOO2
 
-Este é o repositório do trabalho final da disciplina de Linguagem de Programação Orientada a Objetos 2 (LPOO2). O objetivo deste projeto é criar um robusto Gerenciador de Tarefas que utiliza as tecnologias AngularJS, Spring Tools, APIs RESTful e PostgreSQL para fornecer uma solução eficiente que implementa de forma eficiênte o paradigma de orientação á objetos.
+Este é o repositório do trabalho final da disciplina de Linguagem de Programação Orientada a Objetos 2 (LPOO2). O objetivo deste projeto é criar um Gerenciador de Tarefas que utiliza as tecnologias AngularJS, Spring Tools, APIs RESTful e PostgreSQL para fornecer uma solução que implementa o paradigma de orientação á objetos.
 
 ## Tecnologias Utilizadas
 - **AngularJS:** Utilizado para construir a interface do usuário dinâmica e interativa.
